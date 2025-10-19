@@ -1,7 +1,5 @@
 # SimpleStock 🧾
 
-O simplestock é um sistema de gerenciamento de estoque simples de código aberto desenvolvido em PHP.
-
 **SimpleStock** é um projeto acadêmico desenvolvido para apoiar o ensino de **PHP** com **Programação Orientada a Objetos (POO)** no **4º período de 2025 do curso de Análise e Desenvolvimento de Sistemas** da [FASM - Faculdade Santa Marcelina Muriaé](https://www.santamarcelina.edu.br/faculdade/muriae/).
 
 O sistema tem como objetivo apresentar, de forma prática, os conceitos fundamentais de POO aplicados no desenvolvimento de um **controle de estoque simples** com autenticação e painel administrativo.
