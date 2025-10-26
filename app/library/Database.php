@@ -2,6 +2,13 @@
 
 class Database
 {
+    private static $dbConfiguraConexao;
+
+    public function __construct($dbConfiguraConexao = DB_CONF_CONEXAO)
+    {
+        self::$dbConfiguraConexao = $dbConfiguraConexao;
+    }
+
     /**
      * conecta
      *
@@ -10,12 +17,16 @@ class Database
     public function conecta()
     {
         $conexao = (object)NULL;
+        $dsn = self::$dbConfiguraConexao['DB_DRIVE'] . 
+                ":host=" . self::$dbConfiguraConexao['DB_HOST'] . 
+                ";port=" . self::$dbConfiguraConexao['DB_PORT'] . 
+                ";dbname=" . self::$dbConfiguraConexao['DB_BDADOS'];
 
         try {
             $conexao = new PDO(
-                "mysql:host=localhost;port=3306;dbname=phpbasico2025",
-                "root",         // usuário
-                "",             // senha
+                $dsn,
+                self::$dbConfiguraConexao['DB_USER'],         // usuário
+                self::$dbConfiguraConexao['DB_PSW'],          // senha
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
             );
 
@@ -53,6 +64,10 @@ class Database
             $dadosRows = $data->fetchAll();
         } else {
             $dadosRows = $data->fetch();
+
+            if (gettype($dadosRows) == "boolean") {
+                $dadosRows = [];
+            }
         }
 
         return $dadosRows;

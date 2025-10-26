@@ -1,7 +1,4 @@
-<?php
-    require_once "helper/crud.php";
-    require_once "helper/utilits.php";
-?>
+<?php require_once "app/view/comuns/cabecalho.php" ?>
 
 <?= cabecalho("Lista Departamento", "Departamento") ?>
 
@@ -24,9 +21,9 @@
                         <td><?= $value['descricao'] ?></td>
                         <td><?= ($value['statusRegistro'] == 1 ? "Ativo" : "Inativo") ?></td>
                         <td>
-                            <a href="index.php?pagina=formDepartamento&action=view&id=<?= $value['id'] ?>" class="btn btn-secondary" title="Visualizar">Visualizar</a>
-                            <a href="index.php?pagina=formDepartamento&action=update&id=<?= $value['id'] ?>" class="btn btn-warning" title="Alteração">Alterar</a>
-                            <a href="index.php?pagina=formDepartamento&action=delete&id=<?= $value['id'] ?>" class="btn btn-danger" title="Exclusão">Excluir</a>
+                            <a href="/Departamento/form/view/<?= $value['id'] ?>" class="btn btn-secondary" title="Visualizar">Visualizar</a>
+                            <a href="/Departamento/form/update/<?= $value['id'] ?>" class="btn btn-warning" title="Alteração">Alterar</a>
+                            <a href="/Departamento/form/delete/<?= $value['id'] ?>" class="btn btn-danger" title="Exclusão">Excluir</a>
                         </td>
                     </tr>
                     <?php
@@ -41,3 +38,5 @@
         ?>
     </tbody>
 </table>
+
+<?php require_once "app/view/comuns/rodape.php" ?>

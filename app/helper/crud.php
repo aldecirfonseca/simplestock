@@ -11,11 +11,15 @@ function mensagens() : string
     $msgError = "";
     $retHTML = "";
 
-    if (isset($_GET['msgSucesso'])) {
-        $msgSucesso = $_GET['msgSucesso']; 
+    if (isset($_SESSION['msgSucesso'])) {
+        $msgSucesso = $_SESSION['msgSucesso'];
+        // destroy a sessão 
+        unset($_SESSION['msgSucesso']);
     }
-    if (isset($_GET['msgError'])) {
-        $msgError = $_GET['msgError']; 
+    if (isset($_SESSION['msgError'])) {
+        $msgError = $_SESSION['msgError'];
+        // destroy a sessão
+        unset($_SESSION['msgError']);
     }
 
     if (!empty($msgSucesso)) {
@@ -47,21 +51,24 @@ function cabecalho(
     string $programa
     ) : string
 {
-    if (isset($_GET['action'])) {
-        if ($_GET["action"] == "insert") {
+    $request = new Request();
+    $action = $request->getAction();
+
+    if ($action != "") {
+        if ($action == "insert") {
             $subTitulo = "- Novo";
-        } elseif ($_GET["action"] == "update") {
+        } elseif ($action == "update") {
             $subTitulo = "- Alteração";
-        } elseif ($_GET["action"] == "delete") {
+        } elseif ($action == "delete") {
             $subTitulo = "- Exclusão";
-        } elseif ($_GET["action"] == "view") {
+        } elseif ($action == "view") {
             $subTitulo = "- Visualização";
         }
 
-        $btHTML = '<a href="index.php?pagina=lista' . $programa . '" class="btn btn-secondary" title="Voltar">Voltar</a>';
+        $btHTML = '<a href="/' . $programa . '" class="btn btn-secondary" title="Voltar">Voltar</a>';
     } else {
         $subTitulo = '';
-        $btHTML = '<a href="index.php?pagina=form' . $programa . '&action=insert" class="btn btn-primary" title="Novo">Novo</a>';
+        $btHTML = '<a href="/' . $programa . '/form/insert" class="btn btn-primary" title="Novo">Novo</a>';
     }
 
     $retHTML = '<div class="row">

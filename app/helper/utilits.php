@@ -1,6 +1,16 @@
 <?php
 
 /**
+ * baseUrl
+ *
+ * @return string
+ */
+function baseUrl()
+{
+    return BASEURL;
+}
+
+/**
  * strFloat
  *
  * @param string $valor 

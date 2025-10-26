@@ -1,4 +1,8 @@
 <?php
+    session_start();
+
+    require_once "app/config/config.php";
+    require_once "app/library/Request.php";
     require_once "app/controller/BaseController.php";
     require_once "app/model/BaseModel.php";
 
