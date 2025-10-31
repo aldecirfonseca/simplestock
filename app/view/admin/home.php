@@ -55,7 +55,7 @@
                 labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
                 datasets: [{
                     label: 'Vendas (R$ mil)',
-                    data: [65, 59, 80, 81, 56, 95],
+                    data: [65, 59, 45, 81, 30, 95],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.7)',
                         'rgba(54, 162, 235, 0.7)',
