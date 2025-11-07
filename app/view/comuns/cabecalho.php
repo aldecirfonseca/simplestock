@@ -57,6 +57,8 @@
                                             <li><a class="dropdown-item" href="/Departamento">Departamento</a></li>
                                             <li><a class="dropdown-item" href="/Produto">Produto</a></li>
                                             <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="/Movimentacao">Movimentação</a></li>
+                                            <li><hr class="dropdown-divider"></li>
                                             <li><a class="dropdown-item" href="#">Usuário</a></li>
                                         </ul>
                                     </li>

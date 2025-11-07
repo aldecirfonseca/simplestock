@@ -2,7 +2,7 @@
 
 <?= cabecalho("Lista Departamento", "Departamento") ?>
 
-<table class="table table-bordered table-hover table-striped mt-3">
+<table id="tbListaDepartamentos" class="table table-bordered table-hover table-striped mt-3">
     <thead class="table-dark">
         <tr>
             <th>Id</th>
@@ -38,5 +38,7 @@
         ?>
     </tbody>
 </table>
+
+<?= datatables("tbListaDepartamentos") ?>
 
 <?php require_once "app/view/comuns/rodape.php" ?>

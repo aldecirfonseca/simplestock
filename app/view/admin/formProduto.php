@@ -95,6 +95,13 @@
 <script src="<?= baseUrl() ?>assets/ckeditor5/ckeditor5-build-classic/ckeditor.js"></script>
 
 <script type="text/javascript">
+
+    ClassicEditor
+        .create(document.querySelector('#detalhes'))
+        .catch( error => {
+            console.error(error);
+    });
+
     $(document).ready(function() {
         $('#saldoEmEstoque').mask('##.###.###.##0,000', {reverse:true});
         $('#precoVenda').mask('##.###.###.##0,00', {reverse:true});
