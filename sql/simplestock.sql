@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `departamento` (
   `statusRegistro` int NOT NULL DEFAULT '1' COMMENT '1=Ativo;2=Inativo;',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `descricao` (`descricao`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -63,7 +63,19 @@ CREATE TABLE IF NOT EXISTS `produto` (
   UNIQUE KEY `descricao` (`descricao`) USING BTREE,
   KEY `FK1_departamento_id` (`departamento_id`),
   CONSTRAINT `FK1_departamento_id` FOREIGN KEY (`departamento_id`) REFERENCES `departamento` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela simplestock.produtoimagem
+CREATE TABLE IF NOT EXISTS `produtoimagem` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `produto_id` int NOT NULL,
+  `arquivo` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK1_produtoimagem_produto_id` (`produto_id`),
+  CONSTRAINT `FK1_produtoimagem_produto_id` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Exportação de dados foi desmarcado.
 
@@ -77,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `statusRegistro` int NOT NULL DEFAULT '1' COMMENT '1=Ativo; 2=Inativo',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `email_UNIQUE` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 -- Exportação de dados foi desmarcado.
 

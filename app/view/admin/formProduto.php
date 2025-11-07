@@ -92,11 +92,20 @@
 
 </form>
 
+<script src="<?= baseUrl() ?>assets/ckeditor5/ckeditor5-build-classic/ckeditor.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#saldoEmEstoque').mask('##.###.###.##0,000', {reverse:true});
         $('#precoVenda').mask('##.###.###.##0,00', {reverse:true});
     })
+
+    ClassicEditor
+        .create(document.querySelector('#detalhes'))
+        .catch( error => {
+            console.error(error);
+        });
+
 </script>
 
 <?php require_once "app/view/comuns/rodape.php" ?>

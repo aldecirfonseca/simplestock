@@ -6,4 +6,11 @@ class Sistema extends BaseController
     {
         return $this->view("admin/home");
     }
+
+    public function trocaSenha()
+    {
+        $this->helper("crud");                          // Carregar os Helpers
+
+        return $this->view("admin/formTrocaSenha");
+    }
 }
