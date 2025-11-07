@@ -92,7 +92,7 @@
 
 </form>
 
-<script src="<?= baseUrl() ?>assets/ckeditor5/ckeditor5-build-classic/ckeditor.js"></script>
+<script type="text/javascript" src="<?= BASEURL ?>assets/ckeditor5/ckeditor5-build-classic/ckeditor.js"></script>
 
 <script type="text/javascript">
 

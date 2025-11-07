@@ -86,8 +86,7 @@ if (! function_exists('cabecalho')) {
         
         $retHTML .= mensagens();
 
-        return $retHTML;
-    }
+    return $retHTML;
 }
 
 if (! function_exists('datatables')) {

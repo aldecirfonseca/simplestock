@@ -2,7 +2,7 @@
 
 <?= cabecalho("Lista Produto", "Produto") ?>
 
-<table class="table table-bordered table-hover table-striped mt-3" id="tbListaProduto">
+<table id="tbListaProdutos" class="table table-bordered table-hover table-striped mt-3">
     <thead class="table-dark">
         <tr>
             <th>Id</th>
@@ -45,6 +45,6 @@
     </tbody>
 </table>
 
-<?= datatables("tbListaProduto") ?>
+<?= dataTables("tbListaProdutos") ?>
 
 <?php require_once "app/view/comuns/rodape.php" ?>
