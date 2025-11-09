@@ -131,6 +131,5 @@ if (! function_exists('datatables')) {
                     });
                 });
             </script>';
-    }
-    
+    }   
 }
