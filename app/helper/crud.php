@@ -40,8 +40,6 @@ if (! function_exists('mensagens')) {
     }
 }
 
-
-
 if (! function_exists('cabecalho')) {
     /**
      * cabecalho
@@ -93,7 +91,6 @@ if (! function_exists('cabecalho')) {
 }
 
 if (! function_exists('datatables')) {
-
     /**
      * datatables
      *
@@ -133,5 +130,5 @@ if (! function_exists('datatables')) {
                     });
                 });
             </script>';
-    }   
+    }
 }
