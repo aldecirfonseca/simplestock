@@ -3,6 +3,7 @@
 class Movimentacao extends BaseController
 {
     protected $model;
+    protected $ProdutoModel;
 
     /**
      * construct
@@ -11,6 +12,7 @@ class Movimentacao extends BaseController
     {
         parent::__construct();                          // Chama o método construtor da classe BaseController
         $this->model = $this->model("Movimentacao");    // Carregar o model
+        $this->ProdutoModel = $this->model("Produto");
         $this->helper("crud");                          // Carregar os Helpers
     }
 
@@ -36,7 +38,11 @@ class Movimentacao extends BaseController
     {
         return $this->view(
             "admin/formMovimentacao",
-            ["dados" => $this->model->getById($this->request->getId())]
+            [
+                "dados" => $this->model->getById($this->request->getId()),
+                "aProduto" => $this->ProdutoModel->lista()
+            
+            ]
         );
     }
 

@@ -9,7 +9,14 @@ class MovimentacaoModel extends BaseModel
      */
     public function lista()
     {
-        return $this->connDb->select("SELECT * FROM movimentacao as d ORDER BY data_movimento DESC, id DESC");
+        return $this->connDb
+        ->select("SELECT m.*, p.descricao as descricaoProduto
+            , u.nome as nomeUsuario
+        FROM movimentacao as m
+        INNER JOIN produto as p ON p.id = m.produto_id
+        INNER JOIN usuario as u ON u.id = m.usuario_id
+        ORDER BY m.data_movimento DESC, m.id DESC"
+        );
     }
 
     /**
@@ -38,16 +45,15 @@ class MovimentacaoModel extends BaseModel
         return $this->connDb->insert(
             "INSERT INTO movimentacao 
             (usuario_id, produto_id, tipo, data_movimento, 
-            quantidade, valorUnitario, custoUnitario) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)",
+            quantidade, valorUnitario) 
+            VALUES (?, ?, ?, ?, ?, ?)",
             [
                 $_SESSION['userLogado']['id'],
                 $post['produto_id'],
                 $post['tipo'],
                 date("Y-m-d H:i:s"),
                 $post['quantidade'],
-                $post['valorUnitário'],
-                $post['custoUnitario']
+                $post['valorUnitario']
             ]
         );
     }
